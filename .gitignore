@@ -2,3 +2,4 @@ project structure.md
 .env
 data/
 .devcontainer/
+*__pycache__/
