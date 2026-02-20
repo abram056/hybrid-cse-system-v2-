@@ -39,7 +39,8 @@ KNOWN_SMISHING_PHRASES = [
     "has been flagged"
     "this link now"
     "link to claim"
-    "account has been compromised"
+    "account has been compromised",
+    "sensitive information"
 ]
 
 URGENCY_TERMS = [
