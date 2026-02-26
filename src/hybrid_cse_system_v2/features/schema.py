@@ -11,4 +11,10 @@ FEATURE_NAMES = [
     "reward_term_hits",
     "text_length",
     "token_estimate",
+    "digit_ratio",
+    "numeric_token_count",
+    "short_code_count",
+    "uppercase_ratio",
+    "repeated_punct_count",
+    "proximity_suspicious_hits",
 ]
