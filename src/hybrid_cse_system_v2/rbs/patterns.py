@@ -2,16 +2,15 @@ import re
 
 # URL Patterns
 URL_PATTERN = re.compile(
-    r"(https?:/tk/|www\.)[^|s]+",
+    r"(https?://|www\.)[^|s]+",
     re.IGNORECASE
 )
 
 SUSPICIOUS_TLDS = {
-    ".ru",
-    ".cn",
-    ".tk",
-    ".xyz",
-    ".top"
+    ".ru", ".cn", ".tk", ".xyz", ".top",
+    ".icu", ".cfd", ".sbs", ".bond", ".win",
+    ".help", ".xin", ".zip", ".mov", ".cf",
+    ".ml", ".ga", ".gq", ".cm", ".co",
 }
 
 PHONE_PATTERNS = re.compile(
@@ -27,20 +26,20 @@ KNOWN_SMISHING_PHRASES = [
     "your account will be closed",
     "act now",
     "limited time",
-    "to claim your"
-    "click this link"
-    "account has been"
-    "claim your prize"
-    "click here to"
-    "your account has"
-    "the link below"
-    "on your account"
-    "congrats youve won"
-    "has been flagged"
-    "this link now"
-    "link to claim"
+    "to claim your",
+    "click this link",
+    "account has been",
+    "claim your prize",
+    "click here to",
+    "your account has",
+    "the link below",
+    "on your account",
+    "congrats youve won",
+    "has been flagged",
+    "this link now",
+    "link to claim",
     "account has been compromised",
-    "sensitive information"
+    "sensitive information",
 ]
 
 URGENCY_TERMS = [
@@ -60,4 +59,12 @@ REWARD_TERMS = [
     "reward",
     "claim",
     "prize",
+]
+
+SUSPICIOUS_TERM_PAIRS = [
+    ("verify", "account"),
+    ("confirm", "identity"),
+    ("account", "suspend"),
+    ("click", "link"),
+    ("claim", "prize"),
 ]
