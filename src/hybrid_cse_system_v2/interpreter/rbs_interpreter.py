@@ -1,5 +1,6 @@
 from .reasons import REASON_MESSAGES
 
+
 def generate_reasons(features):
     reasons = []
 
@@ -27,4 +28,8 @@ def generate_reasons(features):
     if features["repeated_punct_count"] > 0:
         reasons.append(REASON_MESSAGES["repeated_punctuation"])
 
+    if features["known_smishing_phrase_hits"] > 0:
+        reasons.append(REASON_MESSAGES["known_smish_hit"])
+
     return reasons
+
