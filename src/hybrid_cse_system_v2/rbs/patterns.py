@@ -50,6 +50,7 @@ URGENCY_TERMS = [
     "today",
     "final notice",
     "last chance",
+    "act fast",
 ]
 
 REWARD_TERMS = [
