@@ -5,9 +5,16 @@ import numpy as np
 from scipy.sparse import hstack, csr_matrix
 import joblib
 from typing import Any
+from pathlib import Path
 
 from hybrid_cse_system_v2.rbs.extractor import extract_rbs_features
 from hybrid_cse_system_v2.interpreter.rbs_interpreter import generate_reasons
+
+
+BASE_DIR = Path(__file__).resolve().parents[3]
+
+MODEL_PATH = BASE_DIR / "models" / "mnb_model.joblib"
+VECTORIZER_PATH = BASE_DIR / "models" / "tfidf_vectorizer.joblib"
 
 
 class TextRequest(BaseModel):
@@ -51,8 +58,8 @@ class MLModels:
 async def lifespan(app: FastAPI):
     # Initialize models and attach to app.state
     app.state.ml_models = MLModels(
-        "../../../models/mnb_model.joblib",
-        "../../../models/tfidf_vectorizer.joblib"
+        str(MODEL_PATH.resolve()),
+        str(VECTORIZER_PATH.resolve())
     )
 
     yield
@@ -64,8 +71,8 @@ app = FastAPI(lifespan=lifespan)
 
 
 # Dependency to get ML models
-def get_ml_models() -> MLModels:
-    return app.state.ml_models
+def get_ml_models(request: Request) -> MLModels:
+    return request.app.state.ml_models
 
 
 @app.get("/")
