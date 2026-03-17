@@ -10,6 +10,8 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
+ENV PYTHONPATH=/app/src
+
 # Install Poetry
 RUN pip install --no-cache-dir poetry
 
