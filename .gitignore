@@ -3,3 +3,5 @@ project structure.md
 data/
 .devcontainer/
 *__pycache__/
+.idea/
+*.ipynb_checkpoints/
