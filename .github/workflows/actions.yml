@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with: 
           python-version: "3.14"
 
@@ -35,7 +35,7 @@ jobs:
       - name: Wait for API
         run: |
           sleep 5
-          curl --fail http://localhost:8000/heath
+          curl --fail http://localhost:8000/health
 
       - name: Run Locust
         run: |
