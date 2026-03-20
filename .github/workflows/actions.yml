@@ -3,7 +3,7 @@ name: Hybrid CSE Workflow
 on:
   push:
     branches: [ main ]
-  pull-request:
+  pull_request:
 
 jobs:
   test-and-performance:
